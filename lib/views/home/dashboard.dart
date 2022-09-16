@@ -1,6 +1,10 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
-class DashBoard extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:hain/utils/mixns/login-mixin.dart';
+import 'package:hain/views/home/about-us.dart';
+
+class DashBoard extends StatefulWidget with LoginMixin {
   const DashBoard({super.key});
 
   @override
@@ -98,7 +102,8 @@ class _DashBoardState extends State<DashBoard> {
                   ClipOval(
                     child: SizedBox.fromSize(
                       size: const Size.fromRadius(40), // Image radius
-                      child: Image.asset('assets/bamboo.jpg', fit: BoxFit.cover),
+                      child:
+                          Image.asset('assets/bamboo.jpg', fit: BoxFit.cover),
                     ),
                   ),
                   const SizedBox(
@@ -107,8 +112,9 @@ class _DashBoardState extends State<DashBoard> {
                   const Text(
                     'Sample User Name',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -141,14 +147,18 @@ class _DashBoardState extends State<DashBoard> {
             ListTile(
               title: const Text('About Us'),
               onTap: () {
-                Navigator.pop(context);
+                // TODO FIX ROUTER LOGIC
+                log("Test");
+                setState(() {});
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutUs()),
+                );
               },
             ),
             ListTile(
               title: const Text('Logout'),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: () {},
             ),
           ],
         ),

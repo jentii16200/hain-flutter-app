@@ -49,7 +49,8 @@ class Login extends StatelessWidget with LoginMixin {
                   const EdgeInsets.symmetric(vertical: 15, horizontal: 125.0),
                 ),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.teal.shade600),
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.teal.shade600),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(50)),
@@ -74,8 +75,10 @@ class Login extends StatelessWidget with LoginMixin {
               height: 10,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
-              crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+              mainAxisAlignment:
+                  MainAxisAlignment.center, //Center Row contents horizontally,
+              crossAxisAlignment:
+                  CrossAxisAlignment.center, //Center Row contents vertically,
               children: [
                 const Text(
                   "New to this app?",
