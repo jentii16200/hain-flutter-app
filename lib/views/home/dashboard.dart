@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:hain/utils/mixns/login-mixin.dart';
 import 'package:hain/views/home/about-us.dart';
 
+import '../user-accounts/login-widget.dart';
+
 class DashBoard extends StatefulWidget with LoginMixin {
   const DashBoard({super.key});
 
@@ -147,9 +149,6 @@ class _DashBoardState extends State<DashBoard> {
             ListTile(
               title: const Text('About Us'),
               onTap: () {
-                // TODO FIX ROUTER LOGIC
-                log("Test");
-                setState(() {});
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const AboutUs()),
@@ -158,7 +157,12 @@ class _DashBoardState extends State<DashBoard> {
             ),
             ListTile(
               title: const Text('Logout'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Login()),
+                );
+              },
             ),
           ],
         ),
