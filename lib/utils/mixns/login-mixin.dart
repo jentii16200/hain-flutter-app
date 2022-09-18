@@ -5,6 +5,7 @@ import 'package:hain/views/home/dashboard.dart';
 
 abstract class LoginMixin {
   Widget TextFieldWidget(BuildContext context, String text) {
+    // TODO TO FIX THE POSITION
     return SizedBox(
       width: MediaQuery.of(context).size.width / 1.3,
       child: TextField(

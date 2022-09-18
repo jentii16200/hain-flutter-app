@@ -41,7 +41,7 @@ class Login extends StatelessWidget with LoginMixin {
             ),
             TextFieldWidget(context, 'Password'),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             ElevatedButton(
               style: ButtonStyle(
