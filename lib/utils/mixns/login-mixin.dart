@@ -22,8 +22,7 @@ abstract class LoginMixin {
 
   Route createRoute() {
     return PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            const DashBoard(),
+        pageBuilder: (context, animation, secondaryAnimation) => const DashBoard(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(0.0, 1.0);
           const end = Offset.zero;

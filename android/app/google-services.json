@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "689954200164",
+    "project_id": "hain-402aa",
+    "storage_bucket": "hain-402aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689954200164:android:a1f686127b83e87a1ddd71",
+        "android_client_info": {
+          "package_name": "com.example.hain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689954200164-an306um18hkkmsopvkbdjee37pb0mtjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACR0iya5aryL4mwoyrZGv7rRFDxTVRi0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689954200164-an306um18hkkmsopvkbdjee37pb0mtjq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

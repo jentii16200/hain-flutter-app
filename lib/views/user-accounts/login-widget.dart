@@ -1,12 +1,30 @@
-// ignore_for_file: file_names, non_constant_identifier_names
+// ignore_for_file: file_names, non_constant_identifier_names, avoid_single_cascade_in_expression_statements
 
-import 'dart:developer';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hain/repositories/account-repositories.dart';
 import 'package:hain/utils/mixns/login-mixin.dart';
+import 'package:hain/views/home/dashboard.dart';
+import 'package:hain/views/user-accounts/register-widget.dart';
 
-class Login extends StatelessWidget with LoginMixin {
-  const Login({super.key});
+class Login extends StatefulWidget with LoginMixin, AccountRepositories {
+  Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final _userNameController = TextEditingController();
+  final _passwordController = TextEditingController();
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    _userNameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +53,26 @@ class Login extends StatelessWidget with LoginMixin {
             const SizedBox(
               height: 20,
             ),
-            TextFieldWidget(context, 'Email/Username'),
-            const SizedBox(
-              height: 20,
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextField(
+                controller: _userNameController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Email/Username',
+                ),
+              ),
             ),
-            TextFieldWidget(context, 'Password'),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextField(
+                controller: _passwordController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Password',
+                ),
+              ),
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -50,8 +83,7 @@ class Login extends StatelessWidget with LoginMixin {
                   const EdgeInsets.symmetric(vertical: 15, horizontal: 125.0),
                 ),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.teal.shade600),
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.teal.shade600),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(50)),
@@ -61,9 +93,37 @@ class Login extends StatelessWidget with LoginMixin {
                   ),
                 ),
               ),
-              onPressed: () {
-                Navigator.of(context).pop(false);
-                Navigator.of(context).push(createRoute());
+              onPressed: () async {
+                FirebaseFirestore.instance.collection("UserDetails").where("userName", isEqualTo: _userNameController.value.text).where("password", isEqualTo: _passwordController.value.text).get().then((QuerySnapshot querySnapshot) {
+                  if (querySnapshot.size == 0) {
+                    Fluttertoast.showToast(
+                      msg: "Invalid Username/Password",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.black,
+                      textColor: Colors.white,
+                      fontSize: 15,
+                    );
+                  }
+                  if (querySnapshot.size == 1) {
+                    Fluttertoast.showToast(
+                      msg: "Welcome ${querySnapshot.docs[0]["name"]}!",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.black,
+                      textColor: Colors.white,
+                      fontSize: 15,
+                    );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DashBoard(),
+                      ),
+                    );
+                  }
+                });
               },
               child: Text(
                 "Login".toUpperCase(),
@@ -76,10 +136,8 @@ class Login extends StatelessWidget with LoginMixin {
               height: 10,
             ),
             Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.center, //Center Row contents horizontally,
-              crossAxisAlignment:
-                  CrossAxisAlignment.center, //Center Row contents vertically,
+              mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+              crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
               children: [
                 const Text(
                   "New to this app?",
@@ -90,7 +148,12 @@ class Login extends StatelessWidget with LoginMixin {
                     textStyle: const TextStyle(fontSize: 15),
                   ),
                   onPressed: () {
-                    log("WALANG FOREVER");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Register(),
+                      ),
+                    );
                   },
                   child: const Text('Register'),
                 ),

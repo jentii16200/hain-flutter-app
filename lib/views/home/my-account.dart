@@ -1,6 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class MyAccount extends StatelessWidget {
   const MyAccount({super.key});
@@ -15,7 +15,7 @@ class MyAccount extends StatelessWidget {
           child: Text('MY ACCOUNT'),
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           "HELLO",
         ),
