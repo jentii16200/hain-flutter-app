@@ -1,7 +1,12 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:hain/views/user-accounts/login-widget.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -25,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         brightness: Brightness.light,
       ),
-      home: const Login(),
+      home: Login(),
     );
   }
 }

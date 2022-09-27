@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:hain/utils/mixns/login-mixin.dart';
 import 'package:hain/views/home/about-us.dart';
@@ -105,8 +103,7 @@ class _DashBoardState extends State<DashBoard> {
                   ClipOval(
                     child: SizedBox.fromSize(
                       size: const Size.fromRadius(40), // Image radius
-                      child:
-                          Image.asset('assets/bamboo.jpg', fit: BoxFit.cover),
+                      child: Image.asset('assets/bamboo.jpg', fit: BoxFit.cover),
                     ),
                   ),
                   const SizedBox(
@@ -164,7 +161,7 @@ class _DashBoardState extends State<DashBoard> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Login()),
+                  MaterialPageRoute(builder: (context) => Login()),
                 );
               },
             ),

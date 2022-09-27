@@ -1,6 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class  MyAccount extends StatelessWidget {
   const MyAccount({super.key});
@@ -15,7 +15,6 @@ class  MyAccount extends StatelessWidget {
           child: Text('MY ACCOUNT'),
         ),
       ),
-      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
@@ -28,6 +27,3 @@ class  MyAccount extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}

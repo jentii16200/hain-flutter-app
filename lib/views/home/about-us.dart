@@ -19,15 +19,10 @@ class AboutUs extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
-            child: Container(
-              child: Image.asset(
-                'assets/bambooSchd.jpg',
-                scale: 2.1,
-              ),
+            child: Image.asset(
+              'assets/bambooSchd.jpg',
+              scale: 2.1,
             ),
-          ),
-          SizedBox(
-            height: 20,
           ),
           const Padding(
             padding: EdgeInsets.only(left: 24),
@@ -47,9 +42,6 @@ class AboutUs extends StatelessWidget {
               height: MediaQuery.of(context).size.height / 8.5,
               fit: BoxFit.fill,
             ),
-          ),
-          SizedBox(
-            height: 20,
           ),
           Center(
             child: Text(
@@ -71,21 +63,21 @@ class AboutUs extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 24),
+            padding: const EdgeInsets.only(left: 24),
             child: Column(
               children: [
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.phone,
                       color: Colors.black,
                       size: 30.0,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     TextButton(
@@ -106,12 +98,12 @@ class AboutUs extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.facebook,
                       color: Colors.black,
                       size: 30.0,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     TextButton(
@@ -120,8 +112,7 @@ class AboutUs extends StatelessWidget {
                       ),
                       onPressed: () async {
                         await launchUrl(
-                          Uri.parse(
-                              'https://www.facebook.com/ilovebamboomalabon'),
+                          Uri.parse('https://www.facebook.com/ilovebamboomalabon'),
                         );
                       },
                       child: const Text(
@@ -133,12 +124,12 @@ class AboutUs extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.email,
                       color: Colors.black,
                       size: 30.0,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     TextButton(
@@ -147,8 +138,7 @@ class AboutUs extends StatelessWidget {
                       ),
                       onPressed: () async {
                         await launchUrl(
-                          Uri.parse(
-                              'mailto:bamboobbq@yahoo.com?subject=This is Subject Title&body=This is Body of Email'),
+                          Uri.parse('mailto:bamboobbq@yahoo.com?subject=This is Subject Title&body=This is Body of Email'),
                         );
                       },
                       child: const Text(
