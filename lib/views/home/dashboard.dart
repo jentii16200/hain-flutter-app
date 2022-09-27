@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:hain/utils/mixns/login-mixin.dart';
 import 'package:hain/views/home/about-us.dart';
+import 'package:hain/views/home/my-account.dart';
 
 import '../user-accounts/login-widget.dart';
 
@@ -127,7 +128,7 @@ class _DashBoardState extends State<DashBoard> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const AboutUs()),
+                  MaterialPageRoute(builder: (context) => const MyAccount()),
                 );
               },
             ),

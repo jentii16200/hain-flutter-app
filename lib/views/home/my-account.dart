@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class MyAccount extends StatelessWidget {
+class  MyAccount extends StatelessWidget {
   const MyAccount({super.key});
 
   @override
@@ -15,10 +15,18 @@ class MyAccount extends StatelessWidget {
           child: Text('MY ACCOUNT'),
         ),
       ),
-      body: Center(
-        child: Text(
-          "HELLO",
-        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Container(
+              child: Image.asset(
+                'assets/profile_icon.png',
+                scale: 2.1,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
