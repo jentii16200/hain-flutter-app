@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hain/utils/mixns/login-mixin.dart';
+import 'package:hain/views/cart/cart.dart';
 import 'package:hain/views/home/about-us.dart';
 import 'package:hain/views/home/my-account.dart';
+import 'package:hain/views/menu/menu.dart';
 
 import '../user-accounts/login-widget.dart';
 
@@ -18,9 +20,29 @@ class _DashBoardState extends State<DashBoard> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal.shade600,
-        title: const Center(
-          widthFactor: 2.5,
-          child: Text('DASHBOARD'),
+        title: Row(
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 6,
+            ),
+            const Text("DASHBOARD"),
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 5,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Cart()),
+                );
+              },
+              child: const Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+                size: 36.0,
+              ),
+            ),
+          ],
         ),
       ),
       body: Column(
@@ -132,7 +154,10 @@ class _DashBoardState extends State<DashBoard> {
             ListTile(
               title: const Text('Food Menu'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Menu()),
+                );
               },
             ),
             ListTile(

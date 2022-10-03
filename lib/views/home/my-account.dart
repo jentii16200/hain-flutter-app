@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:hain/utils/info-card.dart';
+import 'package:hain/components/info-card.dart';
 
 class MyAccount extends StatelessWidget {
   const MyAccount({super.key});
@@ -11,7 +11,7 @@ class MyAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var circleAvatar = CircleAvatar(
+    var circleAvatar = const CircleAvatar(
       backgroundImage: AssetImage('assets/profile_icon.png'),
       radius: 50,
     );
@@ -26,7 +26,7 @@ class MyAccount extends StatelessWidget {
       body: SafeArea(
         child: Column(children: <Widget>[
           circleAvatar,
-          Text(
+          const Text(
             "Sample User",
             style: TextStyle(
               fontSize: 40.0,
@@ -34,7 +34,7 @@ class MyAccount extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
             width: 200,
             child: Divider(color: Colors.teal),
