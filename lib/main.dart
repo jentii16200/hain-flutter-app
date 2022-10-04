@@ -1,5 +1,5 @@
-// ignore_for_file: depend_on_referenced_packages
-
+// ignore_for_file: depend_on_referenced_packages, unused_import
+import './global/add-cart-global.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:hain/views/user-accounts/login-widget.dart';
 import 'package:firebase_core/firebase_core.dart';

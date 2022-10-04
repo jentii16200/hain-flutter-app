@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hain/global/add-cart-global.dart';
 import 'package:hain/repositories/account-repositories.dart';
 import 'package:hain/utils/mixns/login-mixin.dart';
 import 'package:hain/views/home/dashboard.dart';
@@ -83,7 +84,8 @@ class _LoginState extends State<Login> {
                   const EdgeInsets.symmetric(vertical: 15, horizontal: 125.0),
                 ),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.teal.shade600),
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.teal.shade600),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(50)),
@@ -94,7 +96,14 @@ class _LoginState extends State<Login> {
                 ),
               ),
               onPressed: () async {
-                FirebaseFirestore.instance.collection("UserDetails").where("userName", isEqualTo: _userNameController.value.text).where("password", isEqualTo: _passwordController.value.text).get().then((QuerySnapshot querySnapshot) {
+                FirebaseFirestore.instance
+                    .collection("UserDetails")
+                    .where("userName",
+                        isEqualTo: _userNameController.value.text)
+                    .where("password",
+                        isEqualTo: _passwordController.value.text)
+                    .get()
+                    .then((QuerySnapshot querySnapshot) {
                   if (querySnapshot.size == 0) {
                     Fluttertoast.showToast(
                       msg: "Invalid Username/Password",
@@ -107,6 +116,7 @@ class _LoginState extends State<Login> {
                     );
                   }
                   if (querySnapshot.size == 1) {
+                    userDetails.value = querySnapshot.docs[0].data() as Map;
                     Fluttertoast.showToast(
                       msg: "Welcome ${querySnapshot.docs[0]["name"]}!",
                       toastLength: Toast.LENGTH_SHORT,
@@ -136,8 +146,10 @@ class _LoginState extends State<Login> {
               height: 10,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
-              crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+              mainAxisAlignment:
+                  MainAxisAlignment.center, //Center Row contents horizontally,
+              crossAxisAlignment:
+                  CrossAxisAlignment.center, //Center Row contents vertically,
               children: [
                 const Text(
                   "New to this app?",

@@ -112,7 +112,8 @@ class AboutUs extends StatelessWidget {
                       ),
                       onPressed: () async {
                         await launchUrl(
-                          Uri.parse('https://www.facebook.com/ilovebamboomalabon'),
+                          Uri.parse(
+                              'https://www.facebook.com/ilovebamboomalabon'),
                         );
                       },
                       child: const Text(
@@ -138,7 +139,8 @@ class AboutUs extends StatelessWidget {
                       ),
                       onPressed: () async {
                         await launchUrl(
-                          Uri.parse('mailto:bamboobbq@yahoo.com?subject=This is Subject Title&body=This is Body of Email'),
+                          Uri.parse(
+                              'mailto:bamboobbq@yahoo.com?subject=This is Subject Title&body=This is Body of Email'),
                         );
                       },
                       child: const Text(

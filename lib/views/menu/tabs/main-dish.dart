@@ -34,7 +34,10 @@ class _MainDishState extends State<MainDish> {
                         return MenuCard(
                           name: mainDishController.menuList[i].name ?? "",
                           price: mainDishController.menuList[i].price ?? 0,
-                          imageUrl: mainDishController.menuList[i].imageUrl ?? "",
+                          imageUrl:
+                              mainDishController.menuList[i].imageUrl ?? "",
+                          ingredients:
+                              mainDishController.menuList[i].ingredients,
                         );
                       },
                     ),

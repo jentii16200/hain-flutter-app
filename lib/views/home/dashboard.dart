@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hain/global/add-cart-global.dart';
 import 'package:hain/utils/mixns/login-mixin.dart';
 import 'package:hain/views/cart/cart.dart';
 import 'package:hain/views/home/about-us.dart';
@@ -125,7 +126,8 @@ class _DashBoardState extends State<DashBoard> {
                   ClipOval(
                     child: SizedBox.fromSize(
                       size: const Size.fromRadius(40), // Image radius
-                      child: Image.asset('assets/bamboo.jpg', fit: BoxFit.cover),
+                      child:
+                          Image.asset('assets/bamboo.jpg', fit: BoxFit.cover),
                     ),
                   ),
                   const SizedBox(
@@ -184,6 +186,7 @@ class _DashBoardState extends State<DashBoard> {
             ListTile(
               title: const Text('Logout'),
               onTap: () {
+                cart.value.clear();
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Login()),

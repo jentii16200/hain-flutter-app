@@ -5,7 +5,8 @@ class MainDishModel {
   final String? name;
   final int? price;
   final String? type;
-  MainDishModel({this.imageUrl, this.ingredients, this.name, this.price, this.type});
+  MainDishModel(
+      {this.imageUrl, this.ingredients, this.name, this.price, this.type});
 
   factory MainDishModel.fromJson(Map<String, dynamic> json) {
     return MainDishModel(

@@ -9,10 +9,13 @@ class MainDishController extends GetxController {
 
   getMenu() async {
     menuList.clear();
-    var url = Uri.parse('https://us-central1-hain-402aa.cloudfunctions.net/api/getMenu');
+    var url = Uri.parse(
+        'https://us-central1-hain-402aa.cloudfunctions.net/api/getMenu');
     var response = await http.post(url, body: {'type': 'dish'});
     dynamic parsedJson = json.decode(response.body);
-    List<MainDishModel> parsedJsonData = (parsedJson as List<dynamic>).map((job) => MainDishModel.fromJson(job)).toList();
+    List<MainDishModel> parsedJsonData = (parsedJson as List<dynamic>)
+        .map((job) => MainDishModel.fromJson(job))
+        .toList();
 
     menuList.addAll(parsedJsonData);
   }
