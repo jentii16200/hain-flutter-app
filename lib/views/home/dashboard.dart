@@ -4,6 +4,8 @@ import 'package:hain/utils/mixns/login-mixin.dart';
 import 'package:hain/views/cart/cart.dart';
 import 'package:hain/views/home/about-us.dart';
 import 'package:hain/views/home/my-account.dart';
+import 'package:hain/views/home/my-order.dart';
+import 'package:hain/views/home/remark.dart';
 import 'package:hain/views/menu/menu.dart';
 
 import '../user-accounts/login-widget.dart';
@@ -165,13 +167,15 @@ class _DashBoardState extends State<DashBoard> {
             ListTile(
               title: const Text('Orders'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const MyOrders()));
               },
             ),
             ListTile(
               title: const Text('Remarks'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Remarks()));
               },
             ),
             ListTile(

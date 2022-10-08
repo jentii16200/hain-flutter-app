@@ -8,7 +8,7 @@ class Remarks extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Remarks'),
-        backgroundColor: Colors.tealAccent,
+        backgroundColor: Colors.teal,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -19,7 +19,7 @@ class Remarks extends StatelessWidget {
               Card(
                 elevation: 50,
                 shadowColor: Colors.black,
-                color: Colors.tealAccent,
+                color: Colors.teal,
                 child: SizedBox(
                   width: 310,
                   height: 510,
