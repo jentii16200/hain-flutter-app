@@ -126,16 +126,15 @@ class _DashBoardState extends State<DashBoard> {
                   ClipOval(
                     child: SizedBox.fromSize(
                       size: const Size.fromRadius(40), // Image radius
-                      child:
-                          Image.asset('assets/bamboo.jpg', fit: BoxFit.cover),
+                      child: Image.asset('assets/bamboo.jpg', fit: BoxFit.cover),
                     ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
-                    'Sample User Name',
-                    style: TextStyle(
+                  Text(
+                    userDetails.value['name'] ?? "",
+                    style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
