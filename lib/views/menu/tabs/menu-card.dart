@@ -22,6 +22,7 @@ class MenuCard extends StatelessWidget {
               ingredients: ingredients,
               description: description,
               price: price,
+              imgUrl: imageUrl,
             ),
           ),
         );
