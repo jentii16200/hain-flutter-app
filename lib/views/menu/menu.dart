@@ -20,7 +20,10 @@ class _MenuState extends State<Menu> {
           backgroundColor: Colors.teal.shade600,
           bottom: const TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.restaurant)),
+              Text(
+                "PULUTAN",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               Tab(icon: Icon(Icons.directions_transit)),
               Tab(icon: Icon(Icons.directions_bike)),
             ],

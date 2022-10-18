@@ -22,6 +22,7 @@ class _MainDishState extends State<MainDish> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade400,
       body: Obx(
         () => mainDishController.menuList.isNotEmpty
             ? Column(
@@ -34,10 +35,9 @@ class _MainDishState extends State<MainDish> {
                         return MenuCard(
                           name: mainDishController.menuList[i].name ?? "",
                           price: mainDishController.menuList[i].price ?? 0,
-                          imageUrl:
-                              mainDishController.menuList[i].imageUrl ?? "",
-                          ingredients:
-                              mainDishController.menuList[i].ingredients,
+                          imageUrl: mainDishController.menuList[i].imageUrl ?? "",
+                          ingredients: mainDishController.menuList[i].ingredients,
+                          description: mainDishController.menuList[i].description,
                         );
                       },
                     ),

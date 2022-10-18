@@ -22,6 +22,8 @@ dependencies:
   fluttertoast: ^8.0.9
   get: ^4.6.5
   http: ^0.13.5
+  after_layout: ^1.2.0
+  quantity_input: ^1.0.2
 
 dev_dependencies:
   flutter_test:
