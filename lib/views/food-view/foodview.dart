@@ -4,6 +4,7 @@ import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hain/global/add-cart-global.dart';
+import 'package:hain/model/order-model.dart';
 import 'package:hain/utils/mixns/convert.dart';
 import 'package:hain/views/cart/cart.dart';
 import 'package:quantity_input/quantity_input.dart';
@@ -25,6 +26,12 @@ class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<Food
   @override
   void initState() {
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _remarksTextController.dispose();
+    super.dispose();
   }
 
   @override
@@ -312,7 +319,15 @@ class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<Food
                           );
                         }
                         if (simpleIntInput > 0) {
-                          cart.value.add({"dish": widget.dish!});
+                          OrderModel order = OrderModel(
+                            widget.dish!,
+                            simpleIntInput,
+                            price,
+                            _remarksTextController.value.text,
+                            widget.imgUrl!,
+                          );
+                          cart.value.add(order);
+                          print(cart.value);
                           Navigator.pop(context);
                         }
                       },
