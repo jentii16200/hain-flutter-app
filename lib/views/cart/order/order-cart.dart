@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hain/global/add-cart-global.dart';
 import 'package:hain/views/cart/order/card.dart';
 
 class OrderCart extends StatefulWidget {
@@ -17,11 +18,33 @@ class _OrderCartState extends State<OrderCart> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: 2,
+              itemCount: cart.value.length,
               itemBuilder: (context, i) {
-                return const OrderCartCard();
+                return OrderCard(
+                  index: i,
+                );
               },
             ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            alignment: Alignment.bottomCenter,
+            decoration: const BoxDecoration(
+              color: Colors.teal,
+              borderRadius: BorderRadius.all(
+                Radius.circular(12.0),
+              ),
+            ),
+            child: TextButton(
+              onPressed: () {},
+              child: const Text(
+                "ADD ORDER",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
           )
         ],
       ),

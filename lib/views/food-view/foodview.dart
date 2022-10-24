@@ -327,7 +327,7 @@ class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<Food
                             widget.imgUrl!,
                           );
                           cart.value.add(order);
-                          print(cart.value);
+
                           Navigator.pop(context);
                         }
                       },

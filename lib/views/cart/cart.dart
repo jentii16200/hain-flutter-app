@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hain/views/cart/order/card.dart';
 import 'package:hain/views/cart/order/order-cart.dart';
 
 class Cart extends StatefulWidget {
@@ -43,7 +42,7 @@ class _CartState extends State<Cart> {
           dragStartBehavior: DragStartBehavior.start,
           children: [
             OrderCart(),
-            OrderCartCard(),
+            OrderCart(),
           ],
         ),
       ),
