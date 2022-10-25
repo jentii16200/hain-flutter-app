@@ -62,7 +62,8 @@ class _OrderCardState extends State<OrderCard> {
                             ],
                             image: DecorationImage(
                               fit: BoxFit.fill,
-                              image: NetworkImage(cart.value[widget.index].imgUrl),
+                              image:
+                                  NetworkImage(cart.value[widget.index].imgUrl),
                             ),
                           ),
                         ),
@@ -97,10 +98,18 @@ class _OrderCardState extends State<OrderCard> {
                       ),
                     ],
                   ),
-                  const Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text("widget"),
-                  ),
+                  cart.value[widget.index].remarks != ""
+                      ? const Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Icon(
+                            Icons.warning,
+                            color: Colors.blue,
+                            size: 30.0,
+                          ),
+                        )
+                      : Container(
+                          height: 30,
+                        )
                 ],
               ),
             ),

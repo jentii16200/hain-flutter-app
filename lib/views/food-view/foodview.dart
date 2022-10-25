@@ -10,7 +10,13 @@ import 'package:hain/views/cart/cart.dart';
 import 'package:quantity_input/quantity_input.dart';
 
 class FoodView extends StatefulWidget {
-  const FoodView({super.key, this.dish, this.ingredients, this.description, this.price, this.imgUrl});
+  const FoodView(
+      {super.key,
+      this.dish,
+      this.ingredients,
+      this.description,
+      this.price,
+      this.imgUrl});
   final String? dish;
   final List? ingredients;
   final String? description;
@@ -20,7 +26,8 @@ class FoodView extends StatefulWidget {
   State<FoodView> createState() => _FoodViewState();
 }
 
-class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<FoodView> {
+class _FoodViewState extends State<FoodView>
+    with Convert, AfterLayoutMixin<FoodView> {
   final _remarksTextController = TextEditingController();
   int simpleIntInput = 0;
   @override
@@ -126,12 +133,14 @@ class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<Food
                   child: TextButton(
                     onPressed: () async {
                       // cart.value.add({"dish": widget.dish!});
-                      return showOrderPopUp(widget.dish!, widget.price!, widget.imgUrl!);
+                      return showOrderPopUp(
+                          widget.dish!, widget.price!, widget.imgUrl!);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        isAllergy(userDetails.value['foodAllergy'] as List, widget.ingredients!)
+                        isAllergy(userDetails.value['foodAllergy'] as List,
+                                widget.ingredients!)
                             ? GestureDetector(
                                 onTap: () async {
                                   return await showWarning();
@@ -206,7 +215,8 @@ class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<Food
     return await showDialog(
       context: context,
       builder: (BuildContext context) {
-        return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
           return Dialog(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(40.0),
@@ -271,7 +281,9 @@ class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<Food
                           ),
                           Text(
                             'Total Price: ${simpleIntInput * price}',
-                            style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -287,7 +299,8 @@ class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<Food
                       controller: _remarksTextController,
                       decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 3, color: Colors.teal), //<-- SEE HERE
+                          borderSide: BorderSide(
+                              width: 3, color: Colors.teal), //<-- SEE HERE
                         ),
                         filled: true,
                         fillColor: Colors.white30, // <- this is required.
@@ -327,7 +340,15 @@ class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<Food
                             widget.imgUrl!,
                           );
                           cart.value.add(order);
-
+                          Fluttertoast.showToast(
+                            msg: "Successfully add an item in cart!",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.teal,
+                            textColor: Colors.white,
+                            fontSize: 15,
+                          );
                           Navigator.pop(context);
                         }
                       },
@@ -348,7 +369,8 @@ class _FoodViewState extends State<FoodView> with Convert, AfterLayoutMixin<Food
 
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
-    if (isAllergy(userDetails.value['foodAllergy'] as List, widget.ingredients!)) {
+    if (isAllergy(
+        userDetails.value['foodAllergy'] as List, widget.ingredients!)) {
       showWarning();
     }
   }
