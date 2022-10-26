@@ -12,7 +12,7 @@ abstract class Convert {
     List arr = [];
     arr.clear();
     arr = [...container1.where(container2.contains)];
-    print(arr);
+
     if (arr.isNotEmpty) {
       return true;
     } else {

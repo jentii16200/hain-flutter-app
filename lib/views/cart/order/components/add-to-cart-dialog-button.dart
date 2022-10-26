@@ -13,7 +13,9 @@ class AddToCartDialogButton extends StatefulWidget {
   State<AddToCartDialogButton> createState() => _AddToCartDialogButtonState();
 }
 
-class _AddToCartDialogButtonState extends State<AddToCartDialogButton> with CalculateTotal {
+class _AddToCartDialogButtonState extends State<AddToCartDialogButton>
+    with CalculateTotal {
+  bool isClick = true;
   String totalPrice = "";
   final orderController = Get.put(OrderController());
   @override
@@ -48,7 +50,8 @@ class _AddToCartDialogButtonState extends State<AddToCartDialogButton> with Calc
             builder: (_) => AlertDialog(
               contentPadding: const EdgeInsets.only(left: 25, right: 25),
               title: Container(),
-              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
               content: SizedBox(
                 height: 300,
                 width: 400,
@@ -118,22 +121,11 @@ class _AddToCartDialogButtonState extends State<AddToCartDialogButton> with Calc
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {
-                        if (cart.value.length == 0) {
-                          Fluttertoast.showToast(
-                            msg: "Please put an order!",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                            timeInSecForIosWeb: 1,
-                            backgroundColor: Colors.teal,
-                            textColor: Colors.white,
-                            fontSize: 15,
-                          );
-                          Navigator.pop(context);
-                        }
-                        if (cart.value.length != 0) {
-                          orderController.confirmOrder().then((value) {
+                        if (isClick) {
+                          isClick = false;
+                          if (cart.value.length == 0) {
                             Fluttertoast.showToast(
-                              msg: "Thank you for order!",
+                              msg: "Please put an order!",
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.BOTTOM,
                               timeInSecForIosWeb: 1,
@@ -141,12 +133,26 @@ class _AddToCartDialogButtonState extends State<AddToCartDialogButton> with Calc
                               textColor: Colors.white,
                               fontSize: 15,
                             );
-                            setState(() {
-                              cart.value.clear();
-                            });
-
                             Navigator.pop(context);
-                          });
+                          }
+                          if (cart.value.length != 0) {
+                            orderController.confirmOrder().then((value) {
+                              Fluttertoast.showToast(
+                                msg: "Thank you for order!",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.BOTTOM,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor: Colors.teal,
+                                textColor: Colors.white,
+                                fontSize: 15,
+                              );
+                              setState(() {
+                                cart.value.clear();
+                              });
+
+                              Navigator.pop(context);
+                            });
+                          }
                         }
                       },
                     ),

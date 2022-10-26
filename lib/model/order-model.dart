@@ -8,8 +8,8 @@ class OrderModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'quantity': name,
-      'name': quantity,
+      'quantity': quantity,
+      'name': name,
       'price': price,
       'remarks': remarks,
       'imgUrl': imgUrl,

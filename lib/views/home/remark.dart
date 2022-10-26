@@ -8,7 +8,7 @@ class Remarks extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Remarks'),
-        backgroundColor: Colors.tealAccent,
+        backgroundColor: Colors.teal.shade600,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -19,7 +19,7 @@ class Remarks extends StatelessWidget {
               Card(
                 elevation: 50,
                 shadowColor: Colors.black,
-                color: Colors.tealAccent,
+                color: Colors.teal.shade600,
                 child: SizedBox(
                   width: 310,
                   height: 510,
@@ -43,7 +43,7 @@ class Remarks extends StatelessWidget {
                           'Remarks',
                           style: TextStyle(
                             fontSize: 30,
-                            color: Colors.teal,
+                            color: Colors.white,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -54,7 +54,7 @@ class Remarks extends StatelessWidget {
                           'Remarks',
                           style: TextStyle(
                             fontSize: 15,
-                            color: Colors.teal,
+                            color: Colors.white,
                           ),
                         ),
                         SizedBox(
