@@ -109,6 +109,7 @@ class _LoginState extends State<Login> {
                   }
                   if (querySnapshot.size == 1) {
                     userDetails.value = querySnapshot.docs[0].data() as Map;
+                    userDetailsId.value = querySnapshot.docs[0].id;
                     Fluttertoast.showToast(
                       msg: "Welcome ${querySnapshot.docs[0]["name"]}!",
                       toastLength: Toast.LENGTH_SHORT,

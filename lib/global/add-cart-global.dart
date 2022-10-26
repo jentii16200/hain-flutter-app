@@ -3,3 +3,4 @@ import 'package:hain/model/order-model.dart';
 
 ValueNotifier cart = ValueNotifier(<OrderModel>[]);
 ValueNotifier<Map> userDetails = ValueNotifier({});
+ValueNotifier<String> userDetailsId = ValueNotifier('');

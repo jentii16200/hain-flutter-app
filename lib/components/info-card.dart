@@ -13,14 +13,14 @@ class InfoCard extends StatelessWidget {
       onTap: onPressed,
       child: Card(
         color: Colors.white,
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
         child: ListTile(
           leading: Icon(
             icon,
             color: Colors.black,
           ),
           title: Text(text,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 20,
               )),
