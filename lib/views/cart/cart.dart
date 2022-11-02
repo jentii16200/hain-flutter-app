@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hain/global/add-cart-global.dart';
+import 'package:hain/views/cart/order/order-cart.dart';
+import 'package:hain/views/cart/status/status.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -11,24 +13,40 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal.shade600,
-        ),
-        body: Column(
-          children: [
-            const Center(
-              child: Text("Cart"),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: cart.value.length,
-                itemBuilder: (context, i) {
-                  return Text(cart.value[i]['dish'] as String);
-                },
+          bottom: const TabBar(
+            tabs: [
+              Text(
+                'ORDER',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
-            )
+              Text(
+                'STATUS',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              ),
+            ],
+          ),
+          title: Row(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 5,
+              ),
+              const Text("MY ORDERS"),
+            ],
+          ),
+        ),
+        body: const TabBarView(
+          dragStartBehavior: DragStartBehavior.start,
+          children: [
+            OrderCart(),
+            Status(),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

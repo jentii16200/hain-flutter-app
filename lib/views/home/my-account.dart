@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:hain/components/info-card.dart';
 
+import '../../global/add-cart-global.dart';
+
 class MyAccount extends StatelessWidget {
   const MyAccount({super.key});
 
@@ -26,9 +28,9 @@ class MyAccount extends StatelessWidget {
       body: SafeArea(
         child: Column(children: <Widget>[
           circleAvatar,
-          const Text(
-            "Sample User",
-            style: TextStyle(
+          Text(
+            userDetails.value['name'],
+            style: const TextStyle(
               fontSize: 40.0,
               color: Colors.black,
               fontWeight: FontWeight.bold,
@@ -39,8 +41,8 @@ class MyAccount extends StatelessWidget {
             width: 200,
             child: Divider(color: Colors.teal),
           ),
-          InfoCard(text: name, icon: Icons.person, onPressed: () async {}),
-          InfoCard(text: allergy, icon: Icons.person, onPressed: () async {}),
+          InfoCard(text: userDetails.value['name'], icon: Icons.person, onPressed: () async {}),
+          InfoCard(text: userDetails.value['foodAllergy'].toString().replaceAll(RegExp(r'[^\w\s]+'), ''), icon: Icons.person, onPressed: () async {}),
         ]),
       ),
     );

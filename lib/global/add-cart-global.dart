@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:hain/model/order-model.dart';
 
-ValueNotifier<List> cart = ValueNotifier([]);
+ValueNotifier cart = ValueNotifier(<OrderModel>[]);
 ValueNotifier<Map> userDetails = ValueNotifier({});
+ValueNotifier<String> userDetailsId = ValueNotifier('');

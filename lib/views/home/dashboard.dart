@@ -4,7 +4,6 @@ import 'package:hain/utils/mixns/login-mixin.dart';
 import 'package:hain/views/cart/cart.dart';
 import 'package:hain/views/home/about-us.dart';
 import 'package:hain/views/home/my-account.dart';
-import 'package:hain/views/home/my-order.dart';
 import 'package:hain/views/home/remark.dart';
 import 'package:hain/views/menu/menu.dart';
 
@@ -135,9 +134,9 @@ class _DashBoardState extends State<DashBoard> {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
-                    'Sample User Name',
-                    style: TextStyle(
+                  Text(
+                    userDetails.value['name'] ?? "",
+                    style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -174,8 +173,10 @@ class _DashBoardState extends State<DashBoard> {
             ListTile(
               title: const Text('Remarks'),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Remarks()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Remarks()),
+                );
               },
             ),
             ListTile(
