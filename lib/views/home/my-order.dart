@@ -15,11 +15,11 @@ class MyOrders extends StatelessWidget {
             isScrollable: true,
             tabs: [
               Tab(
-                icon: Icon(Icons.shopping_cart),
+                icon: Icon(Icons.shopping_basket),
                 text: "Order",
               ),
               Tab(
-                icon: Icon(Icons.punch_clock),
+                icon: Icon(Icons.checklist_rtl_rounded),
                 text: "Status",
               ),
             ],
