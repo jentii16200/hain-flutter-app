@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:hain/components/info-card.dart';
-
+import 'package:editable_image/editable_image.dart';
 import '../../global/add-cart-global.dart';
 
 class MyAccount extends StatelessWidget {
