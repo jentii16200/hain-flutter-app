@@ -3,6 +3,7 @@ import 'package:hain/global/add-cart-global.dart';
 import 'package:hain/utils/mixns/login-mixin.dart';
 import 'package:hain/views/cart/cart.dart';
 import 'package:hain/views/home/about-us.dart';
+import 'package:hain/views/home/my-order.dart';
 import 'package:hain/views/home/my-account.dart';
 import 'package:hain/views/home/my-order.dart';
 import 'package:hain/views/home/remark.dart';
