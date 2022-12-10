@@ -119,7 +119,7 @@ class _LoginState extends State<Login> {
                       textColor: Colors.white,
                       fontSize: 15,
                     );
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const DashBoard(),
